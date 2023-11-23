@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* @font-face {
+  font-family: Poppins-Regular;
+  src: url("./assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Light;
+  src: url("./assets/fonts/Poppins/Poppins-Light.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url("./assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Italic;
+  src: url("./assets/fonts/Poppins/Poppins-Italic.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url("./assets/fonts/Poppins/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: PlayfairDisplay-Bold;
+  src: url("./assets/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url("./assets/fonts/Montserrat/Montserrat-Bold.ttf");
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url("./assets/fonts/Poppins/Poppins-SemiBold.ttf");
+}
+
+.scale-up-center {
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.about-1 {
+  position: relative;
+  z-index: 1;
+}
+
+.about-1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -21px;
+  left: -21px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #ccc;
+}
+
+.card:hover .quick-view {
+  bottom: 27%;
+  opacity: 1;
+  transition: all ease 400ms;
+  z-index: 10;
+}
+
+@media screen and(max-width:468px) {
+  .about-1::before {
+    border: none;
+  }
+} */
