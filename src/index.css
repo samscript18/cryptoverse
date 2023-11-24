@@ -6,7 +6,9 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   scroll-behavior: smooth;
 }
-
+body {
+  background-color: rgba(172, 172, 172, 0.05);
+}
 /* @font-face {
   font-family: Poppins-Regular;
   src: url("./assets/fonts/Poppins/Poppins-Regular.ttf");

@@ -10,7 +10,7 @@ import {
 const Navbar = () => {
   return (
     <nav>
-      <div className="fixed top-0 left-0 w-[20vw] h-full bg-bgPrimary py-2 z-10">
+      <div className="fixed top-0 left-0 w-[20vw] h-full bg-bgPrimary py-2 rounded-r-sm shadow-md z-10">
         <div className="w-full flex justify-start items-center p-4">
           <img
             src={logo}
@@ -25,7 +25,7 @@ const Navbar = () => {
               to={"/"}
               className={({ isActive }) =>
                 isActive
-                  ? "flex justify-start items-center w-[80%] bg-secondary text-white text-base font-medium py-2 pl-4 rounded-sm duration-300"
+                  ? "flex justify-start items-center w-[80%] bg-secondary text-white text-base font-medium py-2 pl-4 rounded-sm shadow-sm duration-300"
                   : "flex justify-start items-center text-gray-400 text-base font-medium py-2 px-4"
               }
             >
@@ -40,7 +40,7 @@ const Navbar = () => {
               to={"/cryptocurrencies"}
               className={({ isActive }) =>
                 isActive
-                  ? "flex justify-start items-center w-[80%] bg-secondary text-white text-base font-medium py-2 pl-4 rounded-sm duration-300"
+                  ? "flex justify-start items-center w-[80%] bg-secondary text-white text-base font-medium py-2 pl-4 rounded-sm shadow-sm duration-300"
                   : "flex justify-start items-center text-gray-400 text-base font-medium py-2 px-4"
               }
             >
@@ -55,7 +55,7 @@ const Navbar = () => {
               to={"/exchanges"}
               className={({ isActive }) =>
                 isActive
-                  ? "flex justify-start items-center w-[80%] bg-secondary text-white text-base font-medium py-2 pl-4 rounded-sm duration-300"
+                  ? "flex justify-start items-center w-[80%] bg-secondary text-white text-base font-medium py-2 pl-4 rounded-sm shadow-sm duration-300"
                   : "flex justify-start items-center text-gray-400 text-base font-medium py-2 px-4"
               }
             >
@@ -70,7 +70,7 @@ const Navbar = () => {
               to={"/news"}
               className={({ isActive }) =>
                 isActive
-                  ? "flex justify-start items-center w-[80%] bg-secondary text-white text-base font-medium py-2 pl-4 rounded-sm duration-300"
+                  ? "flex justify-start items-center w-[80%] bg-secondary text-white text-base font-medium py-2 pl-4 rounded-sm shadow-sm duration-300"
                   : "flex justify-start items-center text-gray-400 text-base font-medium py-2 px-4"
               }
             >

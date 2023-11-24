@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const fetchCoinData = axios.create({
+export const fetchCoinsData = axios.create({
   method: "GET",
   baseURL: "https://coinranking1.p.rapidapi.com",
   params: {
@@ -18,5 +18,15 @@ const fetchCoinData = axios.create({
     "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
   },
 });
-
-export default fetchCoinData;
+export const fetchCoinData = axios.create({
+  method: "GET",
+  baseURL: "https://coinranking1.p.rapidapi.com",
+  params: {
+    referenceCurrencyUuid: "yhjMzLPhuIDl",
+    timePeriod: "24h",
+  },
+  headers: {
+    "X-RapidAPI-Key": "8b801e9b42msh2ba036c4fd99332p192a65jsn7b546c4101d4",
+    "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+  },
+});
