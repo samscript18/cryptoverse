@@ -1,9 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchCoinsData, fetchCoinData } from "../../../services/cryptoApi";
+import {
+  fetchCoinsData,
+  fetchCoinData,
+  fetchCoinHistory,
+  fetchExchangeData,
+} from "../../../services/cryptoApi";
 
 const initialState = {
   cryptoCoinsData: [],
   cryptoCoinData: [],
+  cryptoExchangeData: [],
+  cryptoCoinHistory: [],
   cryptoStatsData: {},
   isLoading: false,
 };
@@ -30,6 +37,28 @@ export const getCoinDetails = createAsyncThunk(
     }
   }
 );
+export const getExchangeData = createAsyncThunk(
+  "app/getExchangeData",
+  async (url, thunkAPI) => {
+    try {
+      const resp = await fetchExchangeData(url);
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue("Something went wrong");
+    }
+  }
+);
+export const getCoinHistory = createAsyncThunk(
+  "app/getCoinHistory",
+  async (url, thunkAPI) => {
+    try {
+      const resp = await fetchCoinHistory(url);
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue("Something went wrong");
+    }
+  }
+);
 
 const cryptoApi = createSlice({
   name: "cryptoData",
@@ -49,9 +78,22 @@ const cryptoApi = createSlice({
         state.isLoading = false;
         state.cryptoCoinData = action.payload;
       })
-      .addCase(getCryptoData.rejected, getCoinDetails.rejected, (state) => {
+      .addCase(getExchangeData.fulfilled, (state, action) => {
         state.isLoading = false;
-      });
+        state.cryptoExchangeData = action.payload;
+      })
+      .addCase(getCoinHistory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cryptoCoinHistory = action.payload;
+      })
+      .addCase(
+        getCryptoData.rejected,
+        getCoinDetails.rejected,
+        getCoinHistory.rejected,
+        (state) => {
+          state.isLoading = false;
+        }
+      );
   },
 });
 

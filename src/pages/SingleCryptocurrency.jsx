@@ -1,9 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getCoinDetails } from "../assets/redux/features/cryptoApi";
-import { useEffect } from "react";
+import {
+  getCoinDetails,
+  getCoinHistory,
+} from "../assets/redux/features/cryptoApi";
+import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import millify from "millify";
+import { LineChart } from "../components";
 import {
   AiOutlineDollarCircle,
   AiOutlineNumber,
@@ -17,9 +21,14 @@ import {
 } from "react-icons/ai";
 
 const SingleCryptocurrency = () => {
+  const [timePeriod, setTimePeriod] = useState("24h");
+  const handleChange = (event) => {
+    const newTimeFrame = event.target.value;
+    setTimePeriod(newTimeFrame.toString());
+  };
   const dispatch = useDispatch();
   const { cryptocurrencyId } = useParams();
-  const { cryptoCoinData, isLoading } = useSelector(
+  const { cryptoCoinData, cryptoCoinHistory, isLoading } = useSelector(
     (store) => store.cryptoData
   );
   const {
@@ -35,12 +44,18 @@ const SingleCryptocurrency = () => {
     numberOfExchanges,
     supply,
     description,
+    change,
   } = cryptoCoinData;
   const volume = cryptoCoinData["24hVolume"];
 
   useEffect(() => {
     dispatch(getCoinDetails(`/coin/${cryptocurrencyId}`));
-  }, [dispatch, cryptocurrencyId]);
+    dispatch(
+      getCoinHistory(
+        `/coin/${cryptocurrencyId}/history?timeperiod=${timePeriod}`
+      )
+    );
+  }, [dispatch, cryptocurrencyId, timePeriod]);
 
   if (isLoading) {
     return (
@@ -50,6 +65,8 @@ const SingleCryptocurrency = () => {
       </div>
     );
   }
+
+  const timeFrame = ["3m", "3h", "24h", "7d", "30d", "1y", "3y", "5y"];
 
   const stats = [
     {
@@ -128,8 +145,45 @@ const SingleCryptocurrency = () => {
             {`${name} live price in US Dollar (USD).View value statistics,market cap and supply`}
           </p>
         </div>
+        <div className="flex mt-8">
+          <div className="w-full mr-[6rem]">
+            <select
+              name="time-frame"
+              id="time-frame"
+              className="w-[50%] h-[30px] rounded-sm outline-none py-1"
+              value={timePeriod}
+              onChange={handleChange}
+            >
+              {timeFrame.map((time, index) => {
+                return (
+                  <option key={index} className="w-full h-[30px]" value={time}>
+                    {time}
+                  </option>
+                );
+              })}
+            </select>
+            <h1 className="text-2xl text-secondary font-medium mt-2">
+              {`${name} Price Chart`}
+            </h1>
+          </div>
+          <div className="w-full flex justify-between items-center">
+            <p className="text-sm text-bgPrimary font-bold py-3">
+              {`Change: ${change}%`}
+            </p>
+            <p className="text-sm text-bgPrimary font-bold py-3">
+              {`Current ${name} Price: ${millify(price)}`}
+            </p>
+          </div>
+        </div>
+        <div className="w-full mt-1 mb-8">
+          <LineChart
+            coinHistory={cryptoCoinHistory}
+            currentPrice={millify(price)}
+            coinName={name}
+          />
+        </div>
         <div className="flex flex-col">
-          <div className="flex justify-between items-start my-12">
+          <div className="flex justify-between items-center my-12">
             <div className="w-full mr-12">
               <h1 className="text-xl text-secondary font-bold text-center">
                 {`${name} Value Statistics`}
