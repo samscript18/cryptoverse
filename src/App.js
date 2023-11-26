@@ -8,8 +8,8 @@ import {
   SharedLayout,
   SingleCryptocurrency,
 } from "./pages";
-import { getCryptoData } from "../src/assets/redux/features/cryptoApi";
-import { getCryptoNewsData } from "../src/assets/redux/features/cryptoNewsApi";
+import { getCryptoData } from "../src/app/redux/features/cryptoApi";
+import { getCryptoNewsData } from "../src/app/redux/features/cryptoNewsApi";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
@@ -25,7 +25,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App bg-gray-100">
+    <div className="App bg-gray-100 pr-0">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SharedLayout />}>

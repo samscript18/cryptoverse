@@ -45,7 +45,6 @@ export const fetchCoinHistory = axios.create({
     referenceCurrencyUuid: "yhjMzLPhuIDl",
   },
   headers: {
-    "Content-Type": "application/json",
     "X-RapidAPI-Key": "8b801e9b42msh2ba036c4fd99332p192a65jsn7b546c4101d4",
     "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
   },

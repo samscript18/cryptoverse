@@ -4,11 +4,13 @@ import { Outlet } from "react-router-dom";
 const SharedLayout = () => {
   return (
     <div className="relative">
-      <div className="flex justify-center items-center">
-        <div className="mr-[17rem]">
+      <div className="flex">
+        <div className="w-full basis-[18.4vw]">
           <Navbar />
         </div>
-        <Outlet />
+        <div className="w-full basis-[78vw]">
+          <Outlet />
+        </div>
       </div>
       <Footer />
     </div>

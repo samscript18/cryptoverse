@@ -17,14 +17,14 @@ const News = () => {
   }
 
   return (
-    <section className="px-8">
-      <div className="w-full mb-[10rem]">
+    <section className="w-full">
+      <div className="w-full mb-[10rem] sm:px-0 xs:px-3">
         <div className="flex justify-center items-center mb-8">
-          <h1 className="w-full text-2xl font-medium mt-4 text-center">
+          <h1 className="w-full text-2xl text-secondary font-medium mt-4 text-center">
             Latest Crypto News
           </h1>
         </div>
-        <div className="grid gap-10 grid-cols-3">
+        <div className="w-full grid sm:gap-6 xs:gap-5 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
           {cryptoNewsData.map((data, index) => {
             return <Article key={index} {...data} />;
           })}

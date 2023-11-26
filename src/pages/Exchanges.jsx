@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getExchangeData } from "../assets/redux/features/cryptoApi";
+import { getExchangeData } from "../app/redux/features/cryptoApi";
 import { useDispatch, useSelector } from "react-redux";
 import { FaSpinner } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -28,31 +28,31 @@ const Exchanges = () => {
     );
   }
   return (
-    <section>
-      <div className="absolute w-[80%] left-[12%] translate-x-[2%] mt-[1rem]">
-        <div className="flex justify-center items-center mb-10 translate-x-[8%]">
-          <h1 className="w-full text-2xl text-secondary font-medium mt-4 text-center">
+    <section className="w-full">
+      <div className="w-full px-[1rem] mb-[10.5rem]">
+        <div className="flex justify-center items-center mb-10">
+          <h1 className="w-full md:text-2xl xs:text-lg text-secondary font-medium mt-4 text-center">
             {`Top ${cryptoExchangeData.length} Cryptos in the world`}
           </h1>
         </div>
-        <div className="flex justify-start items-start">
+        <div className="flex justify-between items-center">
           <div className="w-full">
-            <h1 className="text-xl text-secondary font-bold text-center">
+            <h1 className="md:text-xl xs:text-base text-secondary font-medium text-start">
               Exchange
             </h1>
           </div>
-          <div className="w-full">
-            <h1 className="text-xl text-secondary font-bold text-center">
+          <div className="w-full translate-x-[15%]">
+            <h1 className="md:text-xl xs:text-base text-secondary font-medium text-start">
               Country
             </h1>
           </div>
           <div className="w-full">
-            <h1 className="text-xl text-secondary font-bold text-center">
+            <h1 className="md:text-xl xs:text-base text-secondary font-medium text-center">
               Year Established
             </h1>
           </div>
         </div>
-        <div className="flex flex-col pl-[8rem]">
+        <div className="w-full flex flex-col">
           {cryptoExchangeData.map(
             (
               { id, name, image, url, description, year_established, country },
@@ -60,11 +60,11 @@ const Exchanges = () => {
             ) => {
               return (
                 <div
-                  className="w-full bg-gray-100 rounded-md shadow-sm border border-gray-200 mt-2"
+                  className="bg-gray-100 rounded-md shadow-sm border border-gray-200 mt-2"
                   key={id}
                 >
                   <div
-                    className="flex justify-between items-center p-2"
+                    className="flex justify-between items-center p-2 duration-300"
                     onClick={() => handleChange(index)}
                   >
                     <div className="w-full flex justify-start items-center">
@@ -94,7 +94,7 @@ const Exchanges = () => {
                     </div>
                   </div>
                   {activeIndex === index && (
-                    <div className="w-full bg-white border-t border-gray-200 p-3 rounded-b-md">
+                    <div className="w-full bg-white border-t border-gray-200 p-3 rounded-b-md duration-300">
                       <p className="text-sm text-lightGray font-normal mt-1">
                         {description}
                       </p>

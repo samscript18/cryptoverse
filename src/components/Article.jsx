@@ -20,8 +20,8 @@ const Article = ({
           </div>
           <p className="text-sm text-primary font-normal py-3">{description}</p>
           <div className="flex justify-between items-center cursor-pointer">
-            <p className="text-sm text-bgPrimary font-medium">{source_id}</p>
-            <p className="text-sm text-bgPrimary font-medium">{pubDate}</p>
+            <p className="text-sm text-secondary font-medium">{source_id}</p>
+            <p className="text-sm text-secondary font-medium">{pubDate}</p>
           </div>
         </div>
       </Link>

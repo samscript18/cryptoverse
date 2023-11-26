@@ -17,9 +17,9 @@ const initialState = {
 
 export const getCryptoData = createAsyncThunk(
   "app/getCryptoData",
-  async (coin, thunkAPI) => {
+  async (coins, thunkAPI) => {
     try {
-      const { data } = await fetchCoinsData(coin);
+      const { data } = await fetchCoinsData(coins);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue("Something went wrong");
@@ -27,7 +27,7 @@ export const getCryptoData = createAsyncThunk(
   }
 );
 export const getCoinDetails = createAsyncThunk(
-  "app/getCoinData",
+  "app/getCoinDetails",
   async (coin, thunkAPI) => {
     try {
       const resp = await fetchCoinData(coin);
@@ -42,6 +42,7 @@ export const getExchangeData = createAsyncThunk(
   async (url, thunkAPI) => {
     try {
       const resp = await fetchExchangeData(url);
+
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue("Something went wrong");
@@ -90,6 +91,7 @@ const cryptoApi = createSlice({
         getCryptoData.rejected,
         getCoinDetails.rejected,
         getCoinHistory.rejected,
+        getExchangeData.rejected,
         (state) => {
           state.isLoading = false;
         }

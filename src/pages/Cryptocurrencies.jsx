@@ -17,14 +17,14 @@ const Cryptocurrencies = () => {
   }
 
   return (
-    <section>
-      <div className="w-full mb-[10rem]">
+    <section className="w-full">
+      <div className="w-full mb-[10rem] sm:px-0 xs:px-3">
         <div className="flex justify-center items-center mb-8">
-          <h1 className="w-full text-2xl font-medium mt-4 text-center">
+          <h1 className="w-full text-2xl text-secondary font-medium mt-4 text-center">
             {`Top ${cryptoCoinsData.length} Cryptos in the world`}
           </h1>
         </div>
-        <div className="grid gap-10 grid-cols-4">
+        <div className="grid lg:gap-8 md:gap-6 sm:gap-12 xs:gap-4 md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-1">
           {cryptoCoinsData.map((data) => {
             return <Cryptocurrency key={data.uuid} {...data} />;
           })}
