@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import millify from "millify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Cryptocurrency, Article } from "../components";
@@ -10,8 +10,8 @@ const Home = () => {
     (store) => store.cryptoData
   );
   const { cryptoNewsData } = useSelector((store) => store.cryptoNewsData);
-  const [cryptoCoins, setCryptoCoins] = useState(cryptoCoinsData.slice(0, 10));
-  const [cryptoNews, setCryptoNews] = useState(cryptoNewsData.slice(0, 6));
+  const [cryptoCoins, setCryptoCoins] = useState([]);
+  const [cryptoNews, setCryptoNews] = useState([]);
   const {
     total,
     totalCoins,
@@ -20,6 +20,11 @@ const Home = () => {
     totalMarketCap,
     total24hVolume,
   } = cryptoStatsData;
+
+  useEffect(() => {
+    setCryptoCoins(cryptoCoinsData.slice(0, 10));
+    setCryptoNews(cryptoNewsData.slice(0, 6));
+  }, [cryptoCoinsData, cryptoNewsData]);
 
   if (isLoading) {
     return (

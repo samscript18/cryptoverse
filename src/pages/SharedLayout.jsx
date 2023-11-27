@@ -8,7 +8,7 @@ const SharedLayout = () => {
     <div className="relative flex flex-col">
       <div
         className={`flex ss:flex-row xs:flex-col lg:justify-start md:justify-around ss:justify-around xs:justify-center items-center ${
-          isLoading ? "mb-[12rem]" : ""
+          isLoading ? "mb-[38%]" : ""
         }`}
       >
         <div className="w-full basis-[18.4vw]">
