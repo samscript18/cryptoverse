@@ -11,7 +11,7 @@ const Cryptocurrency = ({
   change,
 }) => {
   return (
-    <article className="bg-white h-[185px] lg:w-[220px] md:w-[18vw] sm:w-[190px] md:p-4 xs:p-2 rounded-md shadow-md">
+    <article className="bg-white h-[185px] lg:w-[220px] md:w-[18vw] sm:w-[190px] xs:p-4 rounded-md shadow-md">
       <Link to={`/cryptocurrencies/${uuid}`}>
         <div className="flex justify-between items-end border-gray-100 border-b pb-4">
           <h2 className="text-base text-bgPrimary font-medium">

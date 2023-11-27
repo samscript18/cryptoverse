@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   getCoinDetails,
   getCoinHistory,
-} from "../app/redux/features/cryptoApi";
+} from "../app/redux/features/cryptoApiSlice";
 import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import millify from "millify";
@@ -59,7 +59,7 @@ const SingleCryptocurrency = () => {
 
   if (isLoading) {
     return (
-      <div className="absolute right-[35%] translate-y-[50vh] flex flex-col justify-center items-center">
+      <div className="absolute sm:right-[38%] xs:right-[35%] translate-y-[40vh]  flex flex-col justify-center items-center">
         <FaSpinner size={50} className="text-secondary animate-spin" />
         <h2 className="text-3xl text-secondary font-medium mt-3">Loading...</h2>
       </div>
@@ -135,7 +135,7 @@ const SingleCryptocurrency = () => {
   ];
 
   return (
-    <section className="w-full">
+    <section className="w-full sm:px-8 xs:px-6">
       <div className="w-full mb-[6rem]">
         <div className="mt-[1rem] flex flex-col border-b border-gray-200 pb-4">
           <Link to={`${websiteUrl}`}>
@@ -247,7 +247,7 @@ const SingleCryptocurrency = () => {
               <h1 className="text-xl text-secondary font-bold text-center">
                 {`${name} Links`}
               </h1>
-              <div className="flex flex-col my-4 md:mr-8">
+              <div className="flex flex-col sm:my-4 xs:mb-16 md:mr-8">
                 {links &&
                   links.map(({ name, type, url }, index) => {
                     return (

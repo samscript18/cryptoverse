@@ -11,7 +11,6 @@ export const getCryptoNewsData = createAsyncThunk(
   async (news, thunkAPI) => {
     try {
       const { data } = await fetchNewsData(news);
-      // console.log(redata);
       return data.results;
     } catch (error) {
       return thunkAPI.rejectWithValue("Something went wrong");

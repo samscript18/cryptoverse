@@ -8,8 +8,8 @@ import {
   SharedLayout,
   SingleCryptocurrency,
 } from "./pages";
-import { getCryptoData } from "../src/app/redux/features/cryptoApi";
-import { getCryptoNewsData } from "../src/app/redux/features/cryptoNewsApi";
+import { getCryptoData } from "./app/redux/features/cryptoApiSlice";
+import { getCryptoNewsData } from "./app/redux/features/cryptoNewsApiSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 

@@ -23,7 +23,7 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className="absolute right-[35%] translate-y-[50vh] flex flex-col justify-center items-center">
+      <div className="absolute sm:right-[38%] xs:right-[35%] translate-y-[40vh] flex flex-col justify-center items-center">
         <FaSpinner size={50} className="text-secondary animate-spin" />
         <h2 className="text-3xl text-secondary font-medium mt-3">Loading...</h2>
       </div>
@@ -31,11 +31,11 @@ const Home = () => {
   }
 
   return (
-    <section className="w-full">
-      <div className="flex flex-col mb-6">
+    <section className="w-full sm:px-8 xs:px-6">
+      <div className="flex flex-col mb-2">
         <div className="w-full">
           <div className="w-full">
-            <h1 className="md:text-2xl xs:text-lg font-medium mt-4">
+            <h1 className="md:text-2xl xs:text-lg font-medium ss:mt-4 xs:mt-2">
               Global Crypto Stats
             </h1>
             <div className="flex justify-between items-start py-6">
@@ -92,7 +92,7 @@ const Home = () => {
             </div>
           </div>
           <div className="w-full mb-[4rem]">
-            <div className="flex justify-between items-end mb-5">
+            <div className="flex justify-between sm:items-end xs:items-center mb-5">
               <h1 className="w-full md:text-2xl xs:text-lg font-medium mt-4">
                 {`Top ${cryptoCoins.length} Cryptos in the world`}
               </h1>
@@ -113,13 +113,13 @@ const Home = () => {
                 </Link>
               )}
             </div>
-            <div className="grid lg:gap-10 md:gap-6 sm:gap-8 md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-1">
+            <div className="grid lg:gap-10 md:gap-4 sm:gap-8 xs:gap-6 md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-1">
               {cryptoCoins.map((data) => {
                 return <Cryptocurrency key={data.uuid} {...data} />;
               })}
             </div>
           </div>
-          <div className="w-full mb-[10rem]">
+          <div className="w-full mb-8">
             <div className="flex justify-between items-end mb-5">
               <h1 className="w-full md:text-2xl xs:text-lg font-medium mt-4">
                 Latest Crypto News
@@ -140,7 +140,7 @@ const Home = () => {
                 </Link>
               )}
             </div>
-            <div className="grid sm:gap-3 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
+            <div className="grid sm:gap-3 xs:gap-6 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
               {cryptoNews.map((data, index) => {
                 return <Article key={index} {...data} />;
               })}

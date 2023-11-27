@@ -2,11 +2,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <section>
-      <div
-        className="w-full bg-bgPrimary absolute bottom-0 right-0
-        py-5"
-      >
+    <section className="w-full">
+      <div className="w-full bg-bgPrimary py-5">
         <div className="flex flex-col justify-center items-center md:translate-x-0 sm:translate-x-[-5%] xs:translate-x-[-27%] text-white md:text-base sm:text-sm font-medium">
           <div className="translate-x-[45%] text-center">
             <h2>

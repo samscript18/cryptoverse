@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchCoinsData = axios.create({
   method: "GET",
-  baseURL: "https://coinranking1.p.rapidapi.com",
+  baseURL: process.env.REACT_APP_CRYPTO_API_URL,
   params: {
     referenceCurrencyUuid: "yhjMzLPhuIDl",
     timePeriod: "24h",
@@ -14,38 +14,38 @@ export const fetchCoinsData = axios.create({
   },
   headers: {
     "Content-Type": "application/json",
-    "X-RapidAPI-Key": "f0021db587msh781fb1cbef39856p11c183jsn45521d5d1c85",
-    "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+    "X-RapidAPI-Key": process.env.REACT_APP_COINS_RAPIDAPI_KEY,
+    "X-RapidAPI-Host": process.env.REACT_APP_CRYPTO_RAPIDAPI_HOST,
   },
 });
 export const fetchCoinData = axios.create({
   method: "GET",
-  baseURL: "https://coinranking1.p.rapidapi.com",
+  baseURL: process.env.REACT_APP_CRYPTO_API_URL,
   params: {
     referenceCurrencyUuid: "yhjMzLPhuIDl",
     timePeriod: "24h",
   },
   headers: {
-    "X-RapidAPI-Key": "8b801e9b42msh2ba036c4fd99332p192a65jsn7b546c4101d4",
-    "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_KEY,
+    "X-RapidAPI-Host": process.env.REACT_APP_CRYPTO_RAPIDAPI_HOST,
   },
 });
 export const fetchExchangeData = axios.create({
   method: "GET",
-  baseURL: "https://coingecko.p.rapidapi.com",
+  baseURL: process.env.REACT_APP_CRYPTO_API_EXCHANGE_URL,
   headers: {
-    "X-RapidAPI-Key": "8b801e9b42msh2ba036c4fd99332p192a65jsn7b546c4101d4",
-    "X-RapidAPI-Host": "coingecko.p.rapidapi.com",
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_KEY,
+    "X-RapidAPI-Host": process.env.REACT_APP_CRYPTO_EXCHANGE_RAPIDAPI_HOST,
   },
 });
 export const fetchCoinHistory = axios.create({
   method: "GET",
-  baseURL: "https://coinranking1.p.rapidapi.com",
+  baseURL: process.env.REACT_APP_CRYPTO_API_URL,
   params: {
     referenceCurrencyUuid: "yhjMzLPhuIDl",
   },
   headers: {
-    "X-RapidAPI-Key": "8b801e9b42msh2ba036c4fd99332p192a65jsn7b546c4101d4",
-    "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_KEY,
+    "X-RapidAPI-Host": process.env.REACT_APP_CRYPTO_RAPIDAPI_HOST,
   },
 });

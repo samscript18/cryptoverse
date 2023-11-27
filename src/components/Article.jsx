@@ -13,18 +13,28 @@ const Article = ({
       key={article_id}
       className="bg-white h-auto w-auto p-4 rounded-md shadow-md cursor-pointer"
     >
-      <Link to={`${link}`}>
-        <div className="flex flex-col">
-          <div className="flex justify-between items-end pb-4">
-            <h2 className="text-base text-bgPrimary font-medium">{title}</h2>
-          </div>
-          <p className="text-sm text-primary font-normal py-3">{description}</p>
-          <div className="flex justify-between items-center cursor-pointer">
-            <p className="text-sm text-secondary font-medium">{source_id}</p>
-            <p className="text-sm text-secondary font-medium">{pubDate}</p>
-          </div>
+      <div className="flex flex-col">
+        <div className="flex justify-between items-end pb-4">
+          <Link to={`${link}`}>
+            <h2 className="text-base text-bgPrimary font-medium hover:text-secondary">
+              {title}
+            </h2>
+          </Link>
         </div>
-      </Link>
+
+        <p className="text-sm text-primary font-normal py-3">
+          {description.substring(0, 200)}...
+          {description ? (
+            <Link to={`${link}`} className="text-secondary pl-1 font-medium">
+              read more
+            </Link>
+          ) : null}
+        </p>
+        <div className="flex justify-between items-center cursor-pointer">
+          <p className="text-sm text-secondary font-medium">{source_id}</p>
+          <p className="text-sm text-secondary font-medium">{pubDate}</p>
+        </div>
+      </div>
     </article>
   );
 };

@@ -42,7 +42,6 @@ export const getExchangeData = createAsyncThunk(
   async (url, thunkAPI) => {
     try {
       const resp = await fetchExchangeData(url);
-
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue("Something went wrong");

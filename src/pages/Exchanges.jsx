@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getExchangeData } from "../app/redux/features/cryptoApi";
+import { getExchangeData } from "../app/redux/features/cryptoApiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaSpinner } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -21,18 +21,18 @@ const Exchanges = () => {
 
   if (isLoading) {
     return (
-      <div className="absolute right-[35%] translate-y-[50vh] flex flex-col justify-center items-center">
+      <div className="absolute sm:right-[38%] xs:right-[35%] translate-y-[40vh] flex flex-col justify-center items-center">
         <FaSpinner size={50} className="text-secondary animate-spin" />
         <h2 className="text-3xl text-secondary font-medium mt-3">Loading...</h2>
       </div>
     );
   }
   return (
-    <section className="w-full">
-      <div className="w-full px-[1rem] mb-[10.5rem]">
+    <section className="w-full md:px-6 ss:px-8 xs:px-6">
+      <div className="w-full mb-8">
         <div className="flex justify-center items-center mb-10">
-          <h1 className="w-full md:text-2xl xs:text-lg text-secondary font-medium mt-4 text-center">
-            {`Top ${cryptoExchangeData.length} Cryptos in the world`}
+          <h1 className="w-full md:text-2xl xs:text-lg text-secondary font-medium ss:mt-4 xs:mt-2 text-center">
+            {`Top ${cryptoExchangeData.length} Exchanges in the world`}
           </h1>
         </div>
         <div className="flex justify-between items-center">

@@ -1,10 +1,16 @@
 import { Navbar, Footer } from "../components";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const SharedLayout = () => {
+  const { isLoading } = useSelector((store) => store.cryptoData);
   return (
-    <div className="relative">
-      <div className="flex">
+    <div className="relative flex flex-col">
+      <div
+        className={`flex ss:flex-row xs:flex-col lg:justify-start md:justify-around ss:justify-around xs:justify-center items-center ${
+          isLoading ? "mb-[12rem]" : ""
+        }`}
+      >
         <div className="w-full basis-[18.4vw]">
           <Navbar />
         </div>
@@ -12,7 +18,9 @@ const SharedLayout = () => {
           <Outlet />
         </div>
       </div>
-      <Footer />
+      <div className="w-full">
+        <Footer />
+      </div>
     </div>
   );
 };
